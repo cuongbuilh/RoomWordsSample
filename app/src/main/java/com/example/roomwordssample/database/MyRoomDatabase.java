@@ -36,15 +36,19 @@ public abstract class MyRoomDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-            new Thread(() -> {
-                final WordDao mDao = mWordRoomDatabase.wordDao();
-                mDao.deleteAll();
-                String[] words = {"dolphin", "crocodile", "cobra"};
-                for (int i = 0; i <= words.length - 1; i++) {
-                    Word word = new Word(words[i]);
-                    mDao.insert(word);
-                }
-            }).start();
+            /*
+                generate default data
+             */
+
+//            new Thread(() -> {
+//                final WordDao mDao = mWordRoomDatabase.wordDao();
+//                mDao.deleteAll();
+//                String[] words = {"dolphin", "crocodile", "cobra"};
+//                for (int i = 0; i <= words.length - 1; i++) {
+//                    Word word = new Word(words[i]);
+//                    mDao.insert(word);
+//                }
+//            }).start();
         }
     };
 }
